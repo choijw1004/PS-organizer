@@ -35,6 +35,13 @@ public class LeetApiClient {
         if (response.statusCode() != 200) {
             throw new RuntimeException("LeetCode API 호출 실패: " + response.statusCode() + " " + response.body());
         }
-        return objectMapper.readValue(response.body(), LeetResponseDto.class);
+
+        LeetResponseDto result = objectMapper.readValue(response.body(), LeetResponseDto.class);
+
+        if(result.getQuestionTitle() != null){
+            result.setQuestionTitle(result.getQuestionTitle().replace(" ", "_"));
+        }
+
+        return result;
     }
 }
