@@ -32,7 +32,7 @@ public class BojApiClient {
         );
 
         if (response.statusCode() != 200) {
-            throw new RuntimeException("LeetCode API 호출 실패: " + response.statusCode() + " " + response.body());
+            throw new RuntimeException("BOJ API 호출 실패: " + response.statusCode() + " " + response.body());
         }
 
         return objectMapper.readValue(response.body(), BojResponseDto.class);
