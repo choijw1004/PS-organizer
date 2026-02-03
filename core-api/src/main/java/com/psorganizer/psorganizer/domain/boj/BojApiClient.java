@@ -31,6 +31,10 @@ public class BojApiClient {
                 HttpResponse.BodyHandlers.ofString()
         );
 
+        if (response.statusCode() != 200) {
+            throw new RuntimeException("LeetCode API 호출 실패: " + response.statusCode() + " " + response.body());
+        }
+
         return objectMapper.readValue(response.body(), BojResponseDto.class);
     }
 }

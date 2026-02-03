@@ -9,7 +9,7 @@ import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 
-import static com.psorganizer.psorganizer.common.constants.ApiConstants.Leet_Base_URL;
+import static com.psorganizer.psorganizer.common.constants.ApiConstants.LEET_BASE_URL;
 
 @Component
 @RequiredArgsConstructor
@@ -21,7 +21,7 @@ public class LeetApiClient {
     public LeetResponseDto getProblem(String titleSlug) throws Exception {
 
         HttpRequest request = HttpRequest.newBuilder()
-                .uri(URI.create(Leet_Base_URL + titleSlug))
+                .uri(URI.create(LEET_BASE_URL + titleSlug))
                 .header("Accept", "application/json")
                 .GET()
                 .build();
