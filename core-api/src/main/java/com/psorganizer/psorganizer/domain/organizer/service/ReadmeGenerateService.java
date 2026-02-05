@@ -31,9 +31,6 @@ public class ReadmeGenerateService {
         readme.append("## 문제 링크\n");
         readme.append(request.getProblemLink()).append("\n\n");
 
-        readme.append("## 접근 방식\n");
-        readme.append(request.getProblemApproach()).append("\n\n");
-
         readme.append("## 카테고리\n");
         List<String> categories = request.getProblemCategories();
         if (categories != null && !categories.isEmpty()) {
@@ -42,6 +39,11 @@ public class ReadmeGenerateService {
             );
         }
         readme.append("\n\n");
+
+        readme.append("## 접근 방식\n");
+        readme.append(request.getProblemApproach()).append("\n\n");
+        readme.append("\n\n");
+
 
         return readme.toString();
     }
