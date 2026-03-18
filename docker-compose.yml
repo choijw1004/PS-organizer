@@ -1,0 +1,14 @@
+services:
+  leetcode-api:
+    image: alfaarghya/alfa-leetcode-api:2.0.3
+    container_name: leetcode-api
+    ports:
+      - "3030:3000"
+
+  core-api:
+    build: ./core-api
+    container_name: core-api
+    ports:
+      - "8090:8090"
+    depends_on:
+      - leetcode-api
